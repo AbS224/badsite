@@ -1,0 +1,1497 @@
+/* CHAOS LAYOUT - Absolute positioning everywhere! */
+
+/* DISABLE all flexbox and grid centering */
+#root {
+  /* DISABLED: max-width: 1280px; */
+  /* DISABLED: margin: 0 auto; */
+  /* DISABLED: padding: 2rem; */
+  /* DISABLED: text-align: center; */
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Main chaos container */
+.chaos-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #0000FF;
+}
+
+/* Main content - positioned absolutely for confusion */
+.main-content {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%) rotate(-3deg);
+  z-index: 1;
+}
+
+/* Logo container - no flexbox! */
+.logo-container {
+  position: relative;
+  width: 300px;
+  height: 150px;
+}
+
+.logo {
+  position: absolute;
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter, transform;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #FF0000);
+  transform: scale(1.5) rotate(15deg);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #FF00FF);
+}
+
+/* Position logos chaotically */
+.logo-container a:first-child .logo {
+  left: 0;
+  top: 0;
+}
+
+.logo-container a:last-child .logo {
+  left: 120px;
+  top: 20px;
+}
+
+/* Spinning animation - faster and more annoying */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 5s linear;
+  }
+}
+
+/* Card styling - no nice centering */
+.card {
+  position: absolute;
+  top: 280px;
+  left: -50px;
+  padding: 2em;
+  border: 5px dashed #FF00FF;
+  background-color: rgba(255, 255, 0, 0.3);
+  transform: rotate(2deg);
+  animation: card-pulse 1s ease-in-out infinite;
+}
+
+@keyframes card-pulse {
+  0%, 100% { box-shadow: 0 0 20px #FF00FF; }
+  50% { box-shadow: 0 0 40px #00FF00, 0 0 60px #FF00FF; }
+}
+
+.card button {
+  font-size: 24px;
+  padding: 20px 40px;
+  background: linear-gradient(90deg, #FF0000, #FFFF00, #00FF00, #00FFFF, #0000FF, #FF00FF);
+  background-size: 200% 200%;
+  animation: rainbow-gradient 2s linear infinite;
+  border: 5px solid #000000;
+  cursor: pointer;
+  font-weight: bold;
+  color: #000000;
+}
+
+.card button:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 30px #FF00FF;
+}
+
+@keyframes rainbow-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.read-the-docs {
+  position: absolute;
+  top: 450px;
+  left: 20px;
+  color: #FF0000 !important;
+  font-size: 1.2em;
+  transform: rotate(-1deg);
+}
+
+/* OVERLAP ELEMENTS - These cover the navigation area */
+
+/* Overlap element 1 - Top warning banner */
+.overlap-element {
+  position: absolute;
+  z-index: 100;
+  padding: 10px 20px;
+  border: 3px solid #FF0000;
+  background-color: #FFFF00;
+}
+
+.overlap-1 {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  animation: vibrate 0.2s linear infinite;
+}
+
+/* Overlap element 2 - Random floating box */
+.overlap-2 {
+  top: 80px;
+  right: 20px;
+  width: 150px;
+  height: 80px;
+  background-color: #00FF00;
+  cursor: pointer;
+  animation: vibrate 0.15s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px dotted #FF0000;
+}
+
+.overlap-2:hover {
+  background-color: #FF00FF;
+  transform: scale(1.2);
+}
+
+/* Overlap element 3 - Spinning logo in the way */
+.overlap-3 {
+  top: 50px;
+  left: 10px;
+  z-index: 99;
+}
+
+.spinning-logo {
+  width: 100px;
+  height: 100px;
+  animation: logo-spin 2s linear infinite;
+}
+
+/* FLOATING CHAOS ELEMENTS */
+
+.floating-chaos {
+  position: absolute;
+  padding: 15px;
+  border: 5px solid;
+  animation: vibrate 0.3s linear infinite;
+  z-index: 50;
+}
+
+.floating-1 {
+  top: 200px;
+  right: 50px;
+  background-color: #FF00FF;
+  border-color: #00FF00;
+  transform: rotate(15deg);
+}
+
+.floating-2 {
+  bottom: 150px;
+  left: 30px;
+  background-color: #00FFFF;
+  border-color: #FF0000;
+  transform: rotate(-10deg);
+}
+
+.floating-3 {
+  bottom: 50px;
+  right: 100px;
+  background-color: #FFFF00;
+  border-color: #0000FF;
+  transform: rotate(5deg);
+  animation: vibrate 0.1s linear infinite, pulse 0.5s ease-in-out infinite;
+}
+
+/* Scroll banner at bottom */
+.scroll-banner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #FF00FF;
+  padding: 10px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 200;
+}
+
+.scroll-banner span {
+  display: inline-block;
+  animation: scroll-text 15s linear infinite;
+}
+
+@keyframes scroll-text {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: rotate(5deg) scale(1); }
+  50% { transform: rotate(5deg) scale(1.1); }
+}
+
+/* Additional chaos for chaotic text */
+.chaotic-text {
+  display: inline;
+}
+
+/* Rainbow border animation for extra visual assault */
+@keyframes rainbow-border {
+  0% { border-color: #FF0000; }
+  16% { border-color: #FF8800; }
+  33% { border-color: #FFFF00; }
+  50% { border-color: #00FF00; }
+  66% { border-color: #0088FF; }
+  83% { border-color: #8800FF; }
+  100% { border-color: #FF0000; }
+}
+
+.floating-chaos {
+  animation: vibrate 0.3s linear infinite, rainbow-border 1s linear infinite;
+}
+
+/* ========================================
+   PHASE 3: INFURIATING INTERACTIONS
+   ======================================== */
+
+/* DODGING BUTTON STYLES */
+.dodging-button-container {
+  position: relative;
+}
+
+.fail-counter {
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  background-color: #FF0000;
+  color: #FFFFFF;
+  padding: 10px 15px;
+  border: 3px solid #FFFF00;
+  font-weight: bold;
+  z-index: 999;
+  animation: vibrate 0.2s linear infinite;
+}
+
+.dodging-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #00FF00;
+  color: #000000;
+  border: 5px solid #FF0000;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 5px 5px 0px #000000;
+}
+
+.dodging-button:hover {
+  background-color: #FF00FF;
+}
+
+.success-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #00FF00;
+  color: #000000;
+  padding: 30px;
+  border: 10px solid #FF0000;
+  font-size: 24px;
+  font-weight: bold;
+  z-index: 1001;
+  animation: vibrate 0.1s linear infinite;
+}
+
+/* AGE SCROLLER STYLES */
+.age-scroller-container {
+  position: fixed;
+  top: 200px;
+  left: 20px;
+  width: 350px;
+  background-color: #FFFF00;
+  border: 5px dashed #FF0000;
+  padding: 20px;
+  z-index: 100;
+}
+
+.age-title {
+  color: #FF0000;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: vibrate 0.3s linear infinite;
+}
+
+.age-display {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.age-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: #0000FF;
+  font-family: 'Courier New', monospace;
+  background-color: #FFFFFF;
+  padding: 10px;
+  border: 3px solid #000000;
+}
+
+.slider-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.age-slider {
+  width: 100%;
+  height: 30px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(to right, #FF0000, #FFFF00, #00FF00, #00FFFF, #0000FF, #FF00FF);
+  border: 3px solid #000000;
+  cursor: pointer;
+}
+
+.age-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 40px;
+  background-color: #FF00FF;
+  border: 3px solid #000000;
+  cursor: pointer;
+}
+
+.age-slider::-moz-range-thumb {
+  width: 20px;
+  height: 40px;
+  background-color: #FF00FF;
+  border: 3px solid #000000;
+  cursor: pointer;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.age-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.validate-button,
+.reset-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 3px solid #000000;
+}
+
+.validate-button {
+  background-color: #00FF00;
+  color: #000000;
+}
+
+.validate-button:hover {
+  background-color: #00CC00;
+}
+
+.reset-button {
+  background-color: #FF0000;
+  color: #FFFFFF;
+}
+
+.reset-button:hover {
+  background-color: #CC0000;
+}
+
+.age-error {
+  background-color: #FF0000;
+  color: #FFFFFF;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  border: 3px solid #FFFF00;
+  margin-bottom: 10px;
+  animation: vibrate 0.15s linear infinite;
+}
+
+.age-success {
+  background-color: #00FF00;
+  color: #000000;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  border: 3px solid #0000FF;
+  margin-bottom: 10px;
+}
+
+.attempts-counter {
+  text-align: center;
+  font-weight: bold;
+  color: #0000FF;
+}
+
+/* INTERACTION SECTION */
+.interaction-section {
+  position: relative;
+  margin-top: 100px;
+}
+
+/* SCROLL TEST AREA */
+.scroll-test-area {
+  position: absolute;
+  top: 900px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  text-align: center;
+  padding: 50px;
+  background-color: #00FFFF;
+  border: 5px solid #FF00FF;
+  z-index: 10;
+}
+
+.scroll-test-area h2 {
+  color: #FF0000;
+  margin-bottom: 20px;
+}
+
+.scroll-test-area p {
+  color: #000000;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.scroll-indicator {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #FFFF00;
+  border: 3px dashed #FF0000;
+  font-size: 24px;
+  font-weight: bold;
+  animation: vibrate 0.2s linear infinite;
+}
+
+/* Make the chaos container scrollable */
+.chaos-container {
+  height: auto;
+  min-height: 100vh;
+  padding-bottom: 200px;
+}
+
+/* ========================================
+   PHASE 4: PSYCHOLOGICAL WARFARE
+   ======================================== */
+
+/* NEWSLETTER POPUP STYLES */
+
+.popup-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.popup-wrapper > * {
+  pointer-events: auto;
+}
+
+.newsletter-popup {
+  position: relative;
+  background-color: #FFFF00;
+  border: 5px solid #FF0000;
+  padding: 30px;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 10px 10px 0px #000000;
+  animation: popup-appear 0.5s ease-out, vibrate 0.3s linear infinite;
+}
+
+@keyframes popup-appear {
+  0% {
+    transform: scale(0.5) rotate(-10deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* THE INVISIBLE CLOSE BUTTON - 1x1 pixel of despair */
+.invisible-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 1px;
+  cursor: pointer;
+  z-index: 10;
+  /* No background, no border, no visible indication */
+}
+
+.popup-content {
+  text-align: center;
+}
+
+.popup-title {
+  color: #FF0000;
+  font-size: 24px;
+  margin-bottom: 15px;
+  animation: vibrate 0.2s linear infinite;
+}
+
+.popup-message {
+  color: #000000;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.popup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.popup-email-input {
+  padding: 12px;
+  font-size: 16px;
+  border: 3px solid #000000;
+  background-color: #FFFFFF;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.popup-email-input:focus {
+  outline: none;
+  border-color: #FF00FF;
+  box-shadow: 0 0 10px #FF00FF;
+}
+
+.popup-submit-button {
+  padding: 15px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #00FF00;
+  color: #000000;
+  border: 3px solid #000000;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.popup-submit-button:hover {
+  background-color: #00CC00;
+  transform: scale(1.05);
+}
+
+.popup-buttons {
+  margin-top: 15px;
+}
+
+.popup-shame-button {
+  background: none;
+  border: none;
+  color: #0000FF;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 5px;
+}
+
+.popup-shame-button:hover {
+  color: #FF0000;
+  text-decoration: none;
+}
+
+.popup-counter {
+  margin-top: 15px;
+  font-size: 12px;
+  color: #FF0000;
+  font-style: italic;
+}
+
+/* Popup dismiss counter */
+.popup-dismiss-counter {
+  position: fixed;
+  bottom: 60px;
+  left: 20px;
+  background-color: #00FF00;
+  color: #000000;
+  padding: 10px 15px;
+  border: 3px solid #FF0000;
+  font-weight: bold;
+  z-index: 999;
+  animation: vibrate 0.2s linear infinite;
+}
+
+/* INFINITE LOADER STYLES */
+
+.infinite-loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.infinite-loader-content {
+  text-align: center;
+  padding: 40px;
+  background-color: #FFFF00;
+  border: 5px solid #FF0000;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 15px 15px 0px #000000;
+}
+
+/* Spinning loader graphic */
+.loader-spinner {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 30px;
+}
+
+.spinner-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 5px solid transparent;
+  border-top-color: #FF0000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.spinner-ring:nth-child(2) {
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  border-top-color: #00FF00;
+  animation-duration: 0.8s;
+  animation-direction: reverse;
+}
+
+.spinner-ring:nth-child(3) {
+  width: 60%;
+  height: 60%;
+  top: 20%;
+  left: 20%;
+  border-top-color: #FF00FF;
+  animation-duration: 0.6s;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader-title {
+  color: #FF0000;
+  font-size: 32px;
+  margin-bottom: 20px;
+  animation: vibrate 0.15s linear infinite;
+}
+
+.loader-message {
+  color: #000000;
+  font-size: 18px;
+  margin-bottom: 20px;
+  min-height: 50px;
+}
+
+.loader-easter-egg {
+  color: #FF00FF;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  animation: vibrate 0.1s linear infinite;
+  background-color: #00FFFF;
+  padding: 10px;
+  border: 2px dashed #FF0000;
+}
+
+/* Progress bar */
+.loader-progress-container {
+  width: 100%;
+  height: 30px;
+  background-color: #FFFFFF;
+  border: 3px solid #000000;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.loader-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #FF0000, #FFFF00, #00FF00, #00FFFF, #0000FF, #FF00FF);
+  transition: width 0.1s linear;
+  animation: rainbow-shift 2s linear infinite;
+}
+
+@keyframes rainbow-shift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.loader-percentage {
+  color: #0000FF;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  margin-bottom: 20px;
+}
+
+/* Skip button */
+.loader-skip-button {
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #FF0000;
+  color: #FFFFFF;
+  border: 3px solid #000000;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.loader-skip-button:hover {
+  background-color: #CC0000;
+}
+
+.loader-fake-close {
+  display: block;
+  margin: 10px auto 0;
+  padding: 8px 20px;
+  font-size: 14px;
+  background-color: #00FF00;
+  color: #000000;
+  border: 2px solid #000000;
+  cursor: pointer;
+}
+
+.loader-fake-close:hover {
+  background-color: #00CC00;
+}
+
+.loader-skip-counter {
+  color: #FF0000;
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+.loader-secret-message {
+  color: #FF00FF;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #00FFFF;
+  border: 2px solid #FF00FF;
+  animation: vibrate 0.1s linear infinite;
+}
+
+/* Mercy button - the only way out */
+.loader-mercy-button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #FF00FF;
+  color: #FFFFFF;
+  border: 3px solid #000000;
+  cursor: pointer;
+  animation: pulse 0.5s ease-in-out infinite;
+}
+
+.loader-mercy-button:hover {
+  background-color: #FF00CC;
+  transform: scale(1.1);
+}
+
+.loader-super-secret {
+  color: #00FF00;
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 15px;
+  padding: 8px;
+  background-color: #000000;
+  border: 1px dashed #00FF00;
+}
+
+/* ========================================
+   PHASE 5: FINAL POLISH - THE WINNING TOUCHES
+   ======================================== */
+
+/* MAC MINI BAIT BUTTON STYLES */
+
+.mac-mini-container {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  z-index: 900;
+  text-align: center;
+}
+
+.mac-mini-button {
+  position: relative;
+  padding: 20px 40px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+  border: 8px solid;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.8), 0 0 60px rgba(255, 255, 0, 0.5);
+  animation: mac-mini-flash 0.5s linear infinite, mac-mini-pulse 0.3s ease-in-out infinite;
+  transform: rotate(-2deg);
+  overflow: hidden;
+}
+
+.mac-mini-button:hover {
+  transform: rotate(2deg) scale(1.1);
+  box-shadow: 0 0 50px rgba(255, 0, 0, 1), 0 0 100px rgba(255, 255, 0, 0.8);
+}
+
+@keyframes mac-mini-flash {
+  0%, 100% { 
+    background-color: #FF0000;
+    color: #FFFFFF;
+  }
+  25% { 
+    background-color: #FFFF00;
+    color: #000000;
+  }
+  50% { 
+    background-color: #00FF00;
+    color: #000000;
+  }
+  75% { 
+    background-color: #FF00FF;
+    color: #FFFFFF;
+  }
+}
+
+@keyframes mac-mini-pulse {
+  0%, 100% { transform: rotate(-2deg) scale(1); }
+  50% { transform: rotate(-2deg) scale(1.05); }
+}
+
+.mac-mini-content {
+  position: relative;
+  z-index: 2;
+}
+
+.mac-mini-logo {
+  font-size: 48px;
+  margin-bottom: 10px;
+  animation: logo-spin 2s linear infinite;
+}
+
+.mac-mini-title {
+  display: block;
+  font-size: 28px;
+  text-shadow: 2px 2px 0px #000000;
+  animation: vibrate 0.1s linear infinite;
+}
+
+.mac-mini-subtitle {
+  font-size: 18px;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 0px #000000;
+  margin-top: 5px;
+}
+
+.mac-mini-urgency {
+  font-size: 14px;
+  color: #FFFF00;
+  margin-top: 10px;
+  animation: vibrate 0.15s linear infinite;
+}
+
+.mac-mini-border-animation {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 5px dashed #FFFFFF;
+  animation: spin 3s linear infinite;
+  pointer-events: none;
+}
+
+.mac-mini-counter {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #FF0000;
+  color: #FFFFFF;
+  padding: 5px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 3px solid #FFFF00;
+  white-space: nowrap;
+}
+
+.mac-mini-warning {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #FFFF00;
+  color: #FF0000;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 3px solid #FF0000;
+  white-space: nowrap;
+  animation: vibrate 0.1s linear infinite;
+}
+
+.mac-mini-badge {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background-color: #FF0000;
+  color: #FFFFFF;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border: 2px solid #FFFFFF;
+  transform: rotate(15deg);
+  animation: vibrate 0.2s linear infinite;
+}
+
+.mac-mini-trust {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #00FF00;
+}
+
+/* FAKE CHAT WIDGET STYLES */
+
+.fake-chat-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: Arial, sans-serif;
+}
+
+.chat-toggle-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 25px;
+  background-color: #FF00FF;
+  color: #FFFFFF;
+  border: 3px solid #FFFF00;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  animation: chat-pulse 1s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+@keyframes chat-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.chat-icon {
+  font-size: 24px;
+}
+
+.chat-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #FF0000;
+  color: #FFFFFF;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  border: 2px solid #FFFFFF;
+  animation: vibrate 0.1s linear infinite;
+}
+
+.chat-label {
+  animation: vibrate 0.2s linear infinite;
+}
+
+.chat-window {
+  width: 350px;
+  height: 450px;
+  background-color: #FFFFFF;
+  border: 5px solid #FF00FF;
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  animation: popup-appear 0.3s ease-out;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #FF00FF;
+  color: #FFFFFF;
+  border-bottom: 3px solid #FFFF00;
+}
+
+.chat-header-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chat-status-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #00FF00;
+  border-radius: 50%;
+  animation: pulse 0.5s ease-in-out infinite;
+}
+
+.chat-agent-name {
+  font-weight: bold;
+}
+
+.chat-wait-time {
+  font-size: 12px;
+  color: #FFFF00;
+}
+
+.chat-minimize {
+  background: none;
+  border: 2px solid #FFFFFF;
+  color: #FFFFFF;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  background-color: #FFFF00;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-message {
+  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+.chat-message.system {
+  background-color: #00FFFF;
+  color: #000000;
+  align-self: center;
+  text-align: center;
+  font-size: 12px;
+  border: 2px dashed #FF00FF;
+}
+
+.chat-message.user {
+  background-color: #FF00FF;
+  color: #FFFFFF;
+  align-self: flex-end;
+  border: 2px solid #FF0000;
+}
+
+.chat-message.agent {
+  background-color: #00FF00;
+  color: #000000;
+  align-self: flex-start;
+  border: 2px solid #0000FF;
+}
+
+.chat-message.typing {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 3px;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background-color: #FF0000;
+  border-radius: 50%;
+  animation: typing-bounce 0.6s ease-in-out infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.chat-message.reconnecting {
+  background-color: #FF0000;
+  color: #FFFFFF;
+  animation: vibrate 0.1s linear infinite;
+}
+
+.chat-input-area {
+  display: flex;
+  padding: 10px;
+  background-color: #FF00FF;
+  border-top: 3px solid #FFFF00;
+  gap: 10px;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 10px;
+  border: 3px solid #FFFF00;
+  background-color: #FFFFFF;
+  font-size: 14px;
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: #00FF00;
+}
+
+.chat-send-button {
+  padding: 10px 20px;
+  background-color: #00FF00;
+  color: #000000;
+  border: 3px solid #000000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.chat-send-button:hover {
+  background-color: #00CC00;
+}
+
+.chat-queue-info {
+  padding: 8px;
+  background-color: #000000;
+  color: #00FF00;
+  font-size: 11px;
+  text-align: center;
+  border-top: 2px solid #00FF00;
+}
+
+/* CURSOR TRAIL STYLES */
+
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-inner {
+  font-size: 40px;
+  font-weight: bold;
+  color: #FF0000;
+  text-shadow: 0 0 10px #FFFF00, 0 0 20px #FF00FF;
+  animation: cursor-spin 1s linear infinite;
+}
+
+@keyframes cursor-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.cursor-trail-dot {
+  position: fixed;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 9998;
+  mix-blend-mode: difference;
+  transition: opacity 0.3s ease;
+}
+
+.cursor-message {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9997;
+  font-size: 14px;
+  font-weight: bold;
+  color: #FF0000;
+  background-color: #FFFF00;
+  padding: 5px 10px;
+  border: 2px solid #FF0000;
+  animation: vibrate 0.1s linear infinite;
+}
+
+/* Hide the default cursor */
+.chaos-container {
+  cursor: none;
+}
+
+.chaos-container * {
+  cursor: none !important;
+}
+
+/* ADDITIONAL CHAOS ANIMATIONS */
+
+/* Flashing background for extra visual assault */
+@keyframes background-flash {
+  0%, 100% { background-color: #0000FF; }
+  25% { background-color: #FF0000; }
+  50% { background-color: #00FF00; }
+  75% { background-color: #FF00FF; }
+}
+
+.chaos-container {
+  animation: background-flash 10s linear infinite;
+}
+
+/* Extra floating elements for phase 5 */
+.floating-prize {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  animation: float-around 5s ease-in-out infinite;
+  z-index: 5;
+  pointer-events: none;
+}
+
+@keyframes float-around {
+  0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+  25% { transform: translate(-30%, -70%) rotate(90deg); }
+  50% { transform: translate(-70%, -30%) rotate(180deg); }
+  75% { transform: translate(-30%, -30%) rotate(270deg); }
+}
+
+/* ========================================
+   AUDIO CHAOS STYLES
+   ======================================== */
+
+/* Audio Controls */
+.audio-controls {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 10000;
+}
+
+.mute-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #FF0000;
+  color: #FFFFFF;
+  border: 5px solid #FFFF00;
+  cursor: pointer;
+  animation: vibrate 0.2s linear infinite;
+}
+
+.mute-button:hover {
+  background-color: #FF00FF;
+  transform: scale(1.1);
+}
+
+/* Cerebral Cortex Overlay */
+.cortex-overlay {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+}
+
+.cortex-content {
+  text-align: center;
+  padding: 50px;
+  background-color: #000000;
+  border: 10px solid #FF00FF;
+  animation: pulse 0.3s ease-in-out infinite;
+}
+
+.cortex-content h2 {
+  color: #FF00FF;
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px #FF00FF;
+}
+
+.cortex-content h3 {
+  color: #FF0000;
+  font-size: 28px;
+  margin-bottom: 30px;
+  animation: vibrate 0.1s linear infinite;
+}
+
+.sync-progress {
+  width: 300px;
+  height: 30px;
+  background-color: #333;
+  border: 3px solid #FF00FF;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.sync-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #FF00FF, #00FFFF);
+  transition: width 0.3s ease;
+}
+
+.cortex-content p {
+  color: #00FF00;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+/* Data Center Console */
+.data-center-console {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 350px;
+  background-color: #000000;
+  border: 3px solid #FF0000;
+  z-index: 9997;
+  font-family: 'Courier New', monospace;
+}
+
+.console-header {
+  background-color: #FF0000;
+  color: #000000;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.console-logs {
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.console-log {
+  font-size: 12px;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-left: 3px solid;
+}
+
+.console-log.error {
+  color: #FF0000;
+  border-color: #FF0000;
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.console-log.warning {
+  color: #FFFF00;
+  border-color: #FFFF00;
+  background-color: rgba(255, 255, 0, 0.1);
+}
+
+.console-log.info {
+  color: #00FF00;
+  border-color: #00FF00;
+  background-color: rgba(0, 255, 0, 0.1);
+}
+
+/* Glaknorg Chat */
+.glaknorg-chat {
+  position: fixed;
+  bottom: 250px;
+  left: 20px;
+  width: 300px;
+  background-color: #000000;
+  border: 5px solid #FF00FF;
+  z-index: 9999;
+  animation: popup-appear 0.5s ease-out;
+}
+
+.glaknorg-header {
+  background: linear-gradient(90deg, #FF00FF, #00FFFF);
+  color: #000000;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.live-indicator {
+  background-color: #FF0000;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  font-size: 12px;
+  animation: pulse 0.5s ease-in-out infinite;
+}
+
+.glaknorg-message {
+  padding: 15px;
+  color: #00FF00;
+  font-size: 16px;
+  font-style: italic;
+  text-align: center;
+  background-color: #111;
+}

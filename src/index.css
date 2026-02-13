@@ -1,0 +1,134 @@
+/* CHROMOSTEREOPSIS INDUCTION - Maximum Eye Strain Colors */
+@import url('https://fonts.googleapis.com/css2?family=Jokerman&family=Creepster&family=Rubik+Beetle&display=swap');
+
+:root {
+  font-family: 'Jokerman', 'Creepster', cursive;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #FF0000; /* Pure Red for maximum chromostereopsis */
+  background-color: #0000FF; /* Pure Blue background */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* All paragraphs get pure red text */
+p {
+  color: #FF0000 !important;
+  font-family: 'Creepster', cursive;
+}
+
+a {
+  font-weight: 500;
+  color: #FF0000;
+  text-decoration: underline wavy #FFFF00;
+}
+a:hover {
+  color: #00FF00;
+  text-decoration: blink;
+}
+
+/* DISABLE all flexbox and grid centering - chaos mode */
+body {
+  margin: 0;
+  /* DISABLED: display: flex; */
+  /* DISABLED: place-items: center; */
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #0000FF;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  font-family: 'Jokerman', cursive;
+}
+
+h2 {
+  font-family: 'Rubik Beetle', cursive;
+}
+
+h3 {
+  font-family: 'Creepster', cursive;
+}
+
+/* VIBRATE ANIMATION - Annoying shaking for all headers */
+@keyframes vibrate {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(-2px, -1px) rotate(-1deg); }
+  20% { transform: translate(2px, 1px) rotate(1deg); }
+  30% { transform: translate(-1px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -2px) rotate(1deg); }
+  50% { transform: translate(-2px, 1px) rotate(-1deg); }
+  60% { transform: translate(2px, -1px) rotate(0deg); }
+  70% { transform: translate(-1px, -2px) rotate(1deg); }
+  80% { transform: translate(1px, 2px) rotate(-1deg); }
+  90% { transform: translate(-2px, -1px) rotate(0deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* Apply vibrate to ALL headers */
+h1, h2, h3, h4, h5, h6 {
+  animation: vibrate 0.3s linear infinite;
+  color: #FF0000;
+  text-shadow: 3px 3px 0px #00FF00, -3px -3px 0px #FFFF00;
+}
+
+button {
+  border-radius: 0px; /* No nice rounded corners */
+  border: 5px dashed #FF0000;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: 'Jokerman', cursive;
+  background-color: #FFFF00;
+  color: #FF0000;
+  cursor: pointer;
+  animation: vibrate 0.5s linear infinite;
+}
+button:hover {
+  background-color: #00FF00;
+  border-color: #FF00FF;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px dashed #FF00FF;
+}
+
+/* Chaos for code elements */
+code {
+  font-family: 'Rubik Beetle', monospace;
+  background-color: #FF00FF;
+  color: #00FFFF;
+  padding: 2px 8px;
+  font-size: 1.2em;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #FF0000;
+    background-color: #0000FF;
+  }
+  a:hover {
+    color: #00FF00;
+  }
+  button {
+    background-color: #FFFF00;
+  }
+}
+
+/* Disable any remaining centering tendencies */
+* {
+  box-sizing: border-box;
+}
+
+/* Marquee-style scrolling for extra annoyance */
+@keyframes scroll-text {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
